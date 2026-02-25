@@ -31,18 +31,54 @@
         .btn-buy:hover { background: var(--dark-blue); transform: translateY(-3px); color: white; box-shadow: 0 5px 15px rgba(0,123,255,0.3); }
 
         /* --- OWL SLIDERS (Videos & Testimonials) --- */
-        .section-padding { padding: 60px 0; }
-        .bg-light-gray { background: #f9f9f9; }
-        
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin: 10px; }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+.section-padding { padding: 60px 0; }
+.bg-light-gray { background: #f9f9f9; }
 
-        .testimonial-card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid #f0f0f0; margin: 15px; transition: 0.3s; }
-        .testimonial-card:hover { border-color: var(--primary-blue); }
-        .star-rating { color: #ffc107; margin-bottom: 10px; }
-        
-        .owl-theme .owl-dots .owl-dot.active span { background: var(--primary-blue) !important; }
+/* FIX: Removes the gap between Testimonials and Newsletter */
+#testimonials { 
+    padding-bottom: 0px !important; 
+    margin-bottom: -30px; /* Pulls the next section up */
+}
 
+.owl-carousel { 
+    margin-bottom: 0 !important; 
+}
+
+.video-container { 
+    position: relative; 
+    padding-bottom: 56.25%; 
+    height: 0; 
+    overflow: hidden; 
+    border-radius: 15px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+    margin: 10px; 
+}
+
+.video-container iframe { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    border: none; 
+}
+
+.testimonial-card { 
+    background: white; 
+    padding: 40px; 
+    border-radius: 20px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04); 
+    border: 1px solid #f0f0f0; 
+    margin: 15px; 
+    transition: 0.3s; 
+}
+
+.testimonial-card:hover { border-color: var(--primary-blue); }
+.star-rating { color: #ffc107; margin-bottom: 10px; }
+
+.owl-theme .owl-dots { margin-top: 0 !important; }
+.owl-theme .owl-dots .owl-dot.active span { background: var(--primary-blue) !important; }
+        
         /* --- NEWSLETTER (FIXED FOR OVERLAP) --- */
 .newsletter-form { 
     background: white; 
