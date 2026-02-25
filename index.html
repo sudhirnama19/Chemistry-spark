@@ -43,14 +43,48 @@
         
         .owl-theme .owl-dots .owl-dot.active span { background: var(--primary-blue) !important; }
 
-        /* --- NEWSLETTER --- */
-        .newsletter-section { background: linear-gradient(135deg, #0052cc 0%, #007bff 100%); color: white; padding: 80px 0; }
-        .newsletter-form { background: white; padding: 6px; border-radius: 60px; display: flex; max-width: 500px; margin: 0 auto; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
-        .newsletter-form input { border: none; padding: 10px 25px; flex-grow: 1; border-radius: 60px; outline: none; }
+        /* --- NEWSLETTER (FIXED FOR OVERLAP) --- */
+.newsletter-form { 
+    background: white; 
+    padding: 8px; 
+    border-radius: 60px; 
+    display: flex; 
+    flex-wrap: wrap; /* Allows button to drop to next line on small screens */
+    justify-content: center;
+    max-width: 550px; 
+    margin: 0 auto; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
+}
 
-        /* --- FOUNDER --- */
-        .founder-img { width: 160px; height: 160px; object-fit: cover; border-radius: 50%; border: 5px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        footer { background: #111; color: #777; padding: 50px 0; text-align: center; }
+.newsletter-form input { 
+    border: none; 
+    padding: 12px 25px; 
+    flex: 1; 
+    min-width: 200px; /* Ensures input doesn't get too squashed */
+    border-radius: 60px; 
+    outline: none; 
+}
+
+.btn-join { 
+    background: #222; 
+    color: white; 
+    border-radius: 50px; 
+    padding: 10px 30px; 
+    border: none; 
+    font-weight: 600; 
+    margin: 4px; /* Space around button when it wraps */
+}
+
+/* --- FOUNDER SECTION (FIXED HEAD CROP) --- */
+.founder-img { 
+    width: 220px; 
+    height: 220px; 
+    object-fit: cover; 
+    object-position: top; /* Pushes the image down to show your head */
+    border-radius: 50%; 
+    border: 8px solid white; 
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15); 
+}
     </style>
 </head>
 <body>
