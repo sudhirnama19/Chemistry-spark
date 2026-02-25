@@ -4,158 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chemistry Spark Publication | Sudhir Nama</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
     <style>
-        :root {
-            --primary-blue: #007bff;
-            --dark-blue: #0056b3;
-            --glass-bg: rgba(255, 255, 255, 0.95);
-        }
+        :root { --primary-blue: #007bff; --dark-blue: #0056b3; }
+        body { font-family: 'Inter', sans-serif; color: #333; scroll-behavior: smooth; padding-top: 85px; background: #fff; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
 
-        body { 
-            font-family: 'Inter', sans-serif; 
-            color: #333; 
-            scroll-behavior: smooth; 
-            padding-top: 85px; 
-            background-color: #ffffff;
-        }
+        /* --- 3D GLASS HEADER --- */
+        .navbar { background: rgba(255, 255, 255, 0.96) !important; backdrop-filter: blur(15px); border-bottom: 1px solid rgba(0, 123, 255, 0.1); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); height: 85px; }
+        .brand-text { font-weight: 800; font-size: 1.5rem; background: linear-gradient(45deg, var(--primary-blue), #00c6ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        h1, h2, h3, h4, .navbar-brand { font-family: 'Playfair Display', serif; }
+        /* --- HERO --- */
+        .hero-section { background: radial-gradient(circle at top right, #f8f9fa, #eef2f7); padding: 90px 0; text-align: center; }
+        
+        /* --- BOOKS --- */
+        .book-card { border: none; background: transparent; perspective: 1000px; text-align: center; margin-bottom: 40px; }
+        .book-img-container { transition: transform 0.5s ease; transform-style: preserve-3d; }
+        .book-card:hover .book-img-container { transform: rotateY(-12deg) rotateX(5deg); }
+        .book-img { width: 100%; max-width: 280px; border-radius: 4px 12px 12px 4px; box-shadow: -8px 15px 35px rgba(0,0,0,0.15); }
+        .btn-buy { background: var(--primary-blue); color: white; border-radius: 50px; padding: 12px 35px; font-weight: 600; text-decoration: none; display: inline-block; transition: 0.3s; border: none; }
+        .btn-buy:hover { background: var(--dark-blue); transform: translateY(-3px); color: white; box-shadow: 0 5px 15px rgba(0,123,255,0.3); }
 
-        /* --- 1. 3D GLASSMORPHISM HEADER --- */
-        .navbar {
-            background: var(--glass-bg) !important;
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(0, 123, 255, 0.15);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            height: 85px;
-        }
+        /* --- OWL SLIDERS (Videos & Testimonials) --- */
+        .section-padding { padding: 80px 0; }
+        .bg-light-gray { background: #f9f9f9; }
+        
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin: 10px; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-        .navbar-brand img {
-            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
-        }
-
-        .brand-text {
-            font-weight: 800;
-            font-size: 1.5rem;
-            background: linear-gradient(45deg, var(--primary-blue), #00c6ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* --- 2. HERO SECTION --- */
-        .hero-section {
-            background: radial-gradient(circle at top right, #f8f9fa, #eef2f7);
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .hero-badge {
-            background: rgba(0, 123, 255, 0.1);
-            color: var(--primary-blue);
-            font-weight: 600;
-            padding: 8px 20px;
-            border-radius: 50px;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-
-        /* --- 3. 3D BOOK CARDS --- */
-        .book-card {
-            border: none;
-            background: transparent;
-            perspective: 1000px;
-        }
-
-        .book-img-container {
-            transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-            transform-style: preserve-3d;
-        }
-
-        .book-card:hover .book-img-container {
-            transform: rotateY(-12deg) rotateX(5deg) scale(1.03);
-        }
-
-        .book-img {
-            width: 100%;
-            border-radius: 4px 12px 12px 4px;
-            box-shadow: -8px 15px 35px rgba(0,0,0,0.2);
-            border-left: 5px solid rgba(0,0,0,0.1);
-        }
-
-        .btn-buy {
-            background: var(--primary-blue);
-            color: white;
-            border-radius: 50px;
-            padding: 12px 35px;
-            font-weight: 600;
-            transition: 0.3s;
-            border: none;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-buy:hover {
-            background: var(--dark-blue);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
-            color: white;
-        }
-
-        /* --- 4. TESTIMONIALS --- */
-        .testimonial-section { background: #fcfcfc; padding: 80px 0; }
-        .testimonial-card {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            border: 1px solid #f0f0f0;
-            height: 100%;
-            transition: 0.3s;
-        }
+        .testimonial-card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid #f0f0f0; margin: 15px; transition: 0.3s; }
         .testimonial-card:hover { border-color: var(--primary-blue); }
         .star-rating { color: #ffc107; margin-bottom: 10px; }
-        .user-info h6 { margin: 0; font-weight: 700; }
-        .user-info small { color: #999; }
+        
+        .owl-theme .owl-dots .owl-dot.active span { background: var(--primary-blue) !important; }
 
-        /* --- 5. NEWSLETTER --- */
-        .newsletter-section {
-            background: linear-gradient(135deg, #0052cc 0%, #007bff 100%);
-            color: white;
-            padding: 80px 0;
-        }
+        /* --- NEWSLETTER --- */
+        .newsletter-section { background: linear-gradient(135deg, #0052cc 0%, #007bff 100%); color: white; padding: 80px 0; }
+        .newsletter-form { background: white; padding: 6px; border-radius: 60px; display: flex; max-width: 500px; margin: 0 auto; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+        .newsletter-form input { border: none; padding: 10px 25px; flex-grow: 1; border-radius: 60px; outline: none; }
 
-        .newsletter-form {
-            background: white;
-            padding: 6px;
-            border-radius: 60px;
-            display: flex;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .newsletter-form input {
-            border: none;
-            padding: 10px 25px;
-            flex-grow: 1;
-            border-radius: 60px;
-            outline: none;
-        }
-
-        /* --- 6. FOUNDER SECTION --- */
-        .founder-img {
-            width: 160px;
-            height: 160px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 5px solid white;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        footer { background: #111; color: #666; padding: 50px 0; }
+        /* --- FOUNDER --- */
+        .founder-img { width: 160px; height: 160px; object-fit: cover; border-radius: 50%; border: 5px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        footer { background: #111; color: #777; padding: 50px 0; text-align: center; }
     </style>
 </head>
 <body>
@@ -163,38 +58,37 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="https://images.sudhirnama.in/images/logo.png" alt="Chemistry Spark Logo" width="50" height="50" class="me-2">
+                <img src="https://images.sudhirnama.in/images/logo.png" alt="Logo" width="50" height="50" class="me-2">
                 <span class="brand-text">Chemistry Spark</span>
             </a>
             <div class="ms-auto d-none d-md-block">
                 <a href="#books" class="nav-link d-inline mx-2 fw-bold text-dark">Books</a>
+                <a href="#videos" class="nav-link d-inline mx-2 fw-bold text-dark">Videos</a>
                 <a href="#testimonials" class="nav-link d-inline mx-2 fw-bold text-dark">Reviews</a>
-                <a href="https://sudhirnama.in" class="btn btn-outline-primary rounded-pill px-4 ms-3">Main Blog</a>
+                <a href="https://sudhirnama.in" class="btn btn-outline-primary rounded-pill px-4 ms-3">Visit Blog</a>
             </div>
         </div>
     </nav>
 
     <header class="hero-section">
         <div class="container">
-            <span class="hero-badge">Official Publication House</span>
-            <h1 class="display-3 fw-bold mb-3">Empowering Students Through <br><span class="text-primary">Quality Education</span></h1>
-            <p class="lead text-muted mb-5 mx-auto" style="max-width: 700px;">Concise, exam-oriented Study Material designed to help you master Chemistry for JEE, NEET, and Boards.</p>
-            <a href="#books" class="btn btn-buy btn-lg px-5 shadow">Explore Books</a>
+            <h1 class="display-3 fw-bold mb-3">Ignite Your <br><span class="text-primary">Chemistry Spark</span></h1>
+            <p class="lead text-muted mb-5 mx-auto" style="max-width: 700px;">Expertly crafted books and video tutorials to help you master Chemistry for competitive exams.</p>
+            <a href="#books" class="btn btn-buy btn-lg shadow">View Book Catalogue</a>
         </div>
     </header>
 
-    <section id="books" class="py-5">
+    <section id="books" class="section-padding">
         <div class="container">
-            <h2 class="text-center mb-5 fw-bold display-6">Featured Publications</h2>
-            <div class="row g-5 justify-content-center">
-                <div class="col-md-5 col-lg-4 text-center">
+            <h2 class="text-center mb-5 fw-bold display-6">Our Latest Publications</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-5 col-lg-4">
                     <div class="card book-card">
                         <div class="book-img-container mb-4">
                             <img src="https://images.sudhirnama.in/images/coordination-chemistry.webp" class="book-img" alt="Coordination Chemistry Book">
                         </div>
                         <h4 class="fw-bold mb-1">Coordination Chemistry</h4>
-                        <p class="text-primary fw-bold small text-uppercase mb-3">On Fingertips</p>
-                        <p class="text-muted mb-4 px-2">Simplifying complex bonding theories and nomenclature with easy-to-remember logic.</p>
+                        <p class="text-primary fw-bold small text-uppercase mb-4">On Fingertips</p>
                         <a href="https://sudhirnama.in/p/books.html" target="_blank" class="btn btn-buy">Buy Hardcopy</a>
                     </div>
                 </div>
@@ -202,115 +96,132 @@
         </div>
     </section>
 
-    <section id="testimonials" class="testimonial-section">
+    <section id="videos" class="section-padding bg-light-gray">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold display-6">Concept Video Tutorials</h2>
+            <div class="owl-carousel video-carousel owl-theme">
+                
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/Sc6S3oI0j-k" allowfullscreen></iframe>
+                </div>
+
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/YpXpWvY5X70" allowfullscreen></iframe>
+                </div>
+
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/Sc6S3oI0j-k" allowfullscreen></iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="section-padding">
         <div class="container">
             <h2 class="text-center mb-5 fw-bold display-6">Student Reviews</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <div class="star-rating">★★★★★</div>
-                        <p class="text-muted">"Best book for Coordination Chemistry. The shortcuts for crystal field theory saved me in my JEE Mains."</p>
-                        <hr>
-                        <div class="user-info">
-                            <h6>Aryan Singh</h6>
-                            <small>Feb 20, 2026 | Patna</small>
-                        </div>
-                    </div>
+            <div class="owl-carousel testimonial-carousel owl-theme">
+                
+                <div class="testimonial-card">
+                    <div class="star-rating">★★★★★</div>
+                    <p class="text-muted">"Best book for JEE Mains 2026. The logic for ligands and crystal field theory is explained so simply."</p>
+                    <hr>
+                    <h6>Aryan Singh</h6>
+                    <small>Feb 15, 2026 | Patna</small>
                 </div>
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <div class="star-rating">★★★★★</div>
-                        <p class="text-muted">"Concise and to the point. Exactly what an aspirant needs during the final month of revision."</p>
-                        <hr>
-                        <div class="user-info">
-                            <h6>Ananya Sharma</h6>
-                            <small>Nov 12, 2025 | New Delhi</small>
-                        </div>
-                    </div>
+
+                <div class="testimonial-card">
+                    <div class="star-rating">★★★★★</div>
+                    <p class="text-muted">"I cleared my NEET concepts in just one week. Chemistry Spark notes are truly a game changer."</p>
+                    <hr>
+                    <h6>Ananya Sharma</h6>
+                    <small>Jan 20, 2026 | New Delhi</small>
                 </div>
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <div class="star-rating">★★★★★</div>
-                        <p class="text-muted">"I've been following Sudhir sir's blog for years. This book is a masterpiece of his teaching style."</p>
-                        <hr>
-                        <div class="user-info">
-                            <h6>Rahul Verma</h6>
-                            <small>Aug 05, 2024 | Kota</small>
-                        </div>
-                    </div>
+
+                <div class="testimonial-card">
+                    <div class="star-rating">★★★★★</div>
+                    <p class="text-muted">"Sudhir sir's teaching method is the best. The book print and binding quality is also premium."</p>
+                    <hr>
+                    <h6>Rahul Verma</h6>
+                    <small>Nov 10, 2025 | Kota</small>
                 </div>
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <div class="star-rating">★★★★★</div>
-                        <p class="text-muted">"The conceptual clarity provided in these notes is unmatched. Truly sparked my interest in Chemistry."</p>
-                        <hr>
-                        <div class="user-info">
-                            <h6>Sneha Reddy</h6>
-                            <small>Jan 15, 2025 | Hyderabad</small>
-                        </div>
-                    </div>
+
+                <div class="testimonial-card">
+                    <div class="star-rating">★★★★★</div>
+                    <p class="text-muted">"Finally a publication that doesn't just ask us to rote learn. Highly recommended!"</p>
+                    <hr>
+                    <h6>Priya Patel</h6>
+                    <small>Aug 22, 2024 | Ahmedabad</small>
                 </div>
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <div class="star-rating">★★★★★</div>
-                        <p class="text-muted">"Finally a publication that understands the pain points of NEET students. Very helpful!"</p>
-                        <hr>
-                        <div class="user-info">
-                            <h6>Priya Patel</h6>
-                            <small>Dec 22, 2023 | Ahmedabad</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <div class="star-rating">★★★★★</div>
-                        <p class="text-muted">"Using the 2026 edition for my boards. The chapter-wise logic is perfect for conceptual questions."</p>
-                        <hr>
-                        <div class="user-info">
-                            <h6>Ishan Gupta</h6>
-                            <small>Feb 10, 2026 | Lucknow</small>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </section>
 
     <section class="newsletter-section">
         <div class="container text-center">
-            <h2 class="text-white mb-3">Join the Chemistry Spark Circle</h2>
-            <p class="mb-4 text-white-50">Get free PDF notes and exclusive book launch offers directly in your inbox.</p>
+            <h2 class="text-white mb-3">Join the Spark Community</h2>
+            <p class="mb-4 text-white-50">Get free chemistry notes and launch offers in your inbox.</p>
             <form class="newsletter-form shadow-lg">
                 <input type="email" placeholder="Enter your email" required>
-                <button type="submit" class="btn btn-dark rounded-pill px-4 mx-1">Subscribe</button>
+                <button type="submit" class="btn btn-dark rounded-pill px-4">Join Now</button>
             </form>
         </div>
     </section>
 
-    <section class="py-5 bg-white text-center">
+    <section class="section-padding text-center bg-white">
         <div class="container">
             <img src="https://images.sudhirnama.in/images/sudhir-nama-chemistry-author.webp" class="founder-img mb-4" alt="Sudhir Nama">
-            <h2 class="mb-1">Sudhir Nama</h2>
-            <p class="text-primary fw-bold mb-4">Founder & Lead Educator</p>
-            <div class="col-lg-6 mx-auto">
-                <p class="text-muted mb-4">Dedicated to making Chemistry accessible and enjoyable for every student. Chemistry Spark aims to simplify learning through logic and concise resources.</p>
-                <div class="p-3 bg-light rounded-pill d-inline-block px-5">
-                    <strong>contact@sudhirnama.in</strong>
-                </div>
+            <h3 class="fw-bold">Sudhir Nama</h3>
+            <p class="text-primary fw-bold">Founder, Chemistry Spark Publication</p>
+            <p class="text-muted mx-auto mb-4" style="max-width: 650px;">A passionate chemistry educator on a mission to simplify learning for students across India. Author of multiple high-success chemistry guides.</p>
+            <div class="p-3 bg-light rounded-pill d-inline-block px-5 border">
+                <strong>contact@sudhirnama.in</strong>
             </div>
         </div>
     </section>
 
-    <footer class="text-center">
+    <footer>
         <div class="container">
-            <h5 class="text-white mb-3">Chemistry Spark Publication</h5>
-            <p class="small mb-4 text-white-50">Providing high-quality educational resources for the modern student.</p>
-            <hr class="bg-secondary opacity-25">
-            <p class="small mb-0">&copy; 2026 Chemistry Spark. All rights reserved.</p>
-            <a href="https://sudhirnama.in" class="small">Powered by sudhirnama.in</a>
+            <p class="small mb-2">&copy; 2026 Chemistry Spark. All rights reserved.</p>
+            <a href="https://sudhirnama.in" class="text-white-50 text-decoration-none">A subsidiary of sudhirnama.in</a>
         </div>
     </footer>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            // Video Slider
+            $(".video-carousel").owlCarousel({
+                loop: true,
+                margin: 20,
+                nav: false,
+                dots: true,
+                responsive:{
+                    0:{ items: 1 },
+                    768:{ items: 2 },
+                    1000:{ items: 2 }
+                }
+            });
+
+            // Testimonial Slider
+            $(".testimonial-carousel").owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: false,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                responsive:{
+                    0:{ items: 1 },
+                    768:{ items: 2 },
+                    1000:{ items: 3 }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
