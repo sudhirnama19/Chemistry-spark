@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,100 +31,50 @@
         .btn-buy { background: var(--primary-blue); color: white; border-radius: 50px; padding: 12px 35px; font-weight: 600; text-decoration: none; display: inline-block; transition: 0.3s; border: none; }
         .btn-buy:hover { background: var(--dark-blue); transform: translateY(-3px); color: white; box-shadow: 0 5px 15px rgba(0,123,255,0.3); }
 
-        /* --- OWL SLIDERS (Videos & Testimonials) --- */
-.section-padding { padding: 60px 0; }
-.bg-light-gray { background: #f9f9f9; }
-
-/* FIX: Removes the gap between Testimonials and Newsletter */
-#testimonials { 
-    padding-bottom: 0px !important; 
-    margin-bottom: -30px; /* Pulls the next section up */
-}
-
-.owl-carousel { 
-    margin-bottom: 0 !important; 
-}
-
-.video-container { 
-    position: relative; 
-    padding-bottom: 56.25%; 
-    height: 0; 
-    overflow: hidden; 
-    border-radius: 15px; 
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
-    margin: 10px; 
-}
-
-.video-container iframe { 
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
-    border: none; 
-}
-
-.testimonial-card { 
-    background: white; 
-    padding: 40px; 
-    border-radius: 20px; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.04); 
-    border: 1px solid #f0f0f0; 
-    margin: 15px; 
-    transition: 0.3s; 
-}
-
-.testimonial-card:hover { border-color: var(--primary-blue); }
-.star-rating { color: #ffc107; margin-bottom: 10px; }
-
-.owl-theme .owl-dots { margin-top: 0 !important; }
-.owl-theme .owl-dots .owl-dot.active span { background: var(--primary-blue) !important; }
+        /* --- OWL SLIDERS --- */
+        .section-padding { padding: 60px 0; }
+        .bg-light-gray { background: #f9f9f9; }
+        #testimonials { padding-bottom: 0px !important; margin-bottom: -30px; }
+        .owl-carousel { margin-bottom: 0 !important; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin: 10px; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .testimonial-card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid #f0f0f0; margin: 15px; transition: 0.3s; }
+        .testimonial-card:hover { border-color: var(--primary-blue); }
+        .star-rating { color: #ffc107; margin-bottom: 10px; }
+        .owl-theme .owl-dots { margin-top: 0 !important; }
+        .owl-theme .owl-dots .owl-dot.active span { background: var(--primary-blue) !important; }
         
-        /* --- NEWSLETTER (FIXED FOR OVERLAP) --- */
-.newsletter-form { 
-    background: white; 
-    padding: 8px; 
-    border-radius: 60px; 
-    display: flex; 
-    flex-wrap: wrap; /* Allows button to drop to next line on small screens */
-    justify-content: center;
-    max-width: 550px; 
-    margin: 0 auto; 
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
-}
+        /* --- NEWSLETTER --- */
+        .newsletter-section { background: linear-gradient(135deg, #0052cc 0%, #007bff 100%); color: white; padding: 80px 0; }
+        .newsletter-form { background: white; padding: 8px; border-radius: 60px; display: flex; flex-wrap: wrap; justify-content: center; max-width: 550px; margin: 0 auto; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+        .newsletter-form input { border: none; padding: 12px 25px; flex: 1; min-width: 200px; border-radius: 60px; outline: none; }
 
-.newsletter-form input { 
-    border: none; 
-    padding: 12px 25px; 
-    flex: 1; 
-    min-width: 200px; /* Ensures input doesn't get too squashed */
-    border-radius: 60px; 
-    outline: none; 
-}
+        /* --- FOUNDER SECTION --- */
+        .founder-img { width: 220px; height: 220px; object-fit: cover; object-position: top; border-radius: 50%; border: 8px solid white; box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
 
-.btn-join { 
-    background: #222; 
-    color: white; 
-    border-radius: 50px; 
-    padding: 10px 30px; 
-    border: none; 
-    font-weight: 600; 
-    margin: 4px; /* Space around button when it wraps */
-}
+        /* --- FADE IN ANIMATION --- */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-/* --- FOUNDER SECTION (FIXED HEAD CROP) --- */
-.founder-img { 
-    width: 220px; 
-    height: 220px; 
-    object-fit: cover; 
-    object-position: top; /* Pushes the image down to show your head */
-    border-radius: 50%; 
-    border: 8px solid white; 
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15); 
-}
+        /* --- SCROLL TO TOP BUTTON --- */
+        #scrollTop {
+            position: fixed; bottom: 30px; right: 30px;
+            width: 50px; height: 50px;
+            background: var(--primary-blue); color: white;
+            border: none; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px; cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            opacity: 0; visibility: hidden;
+            transition: 0.3s; z-index: 1000;
+        }
+        #scrollTop.show { opacity: 1; visibility: visible; }
+        #scrollTop:hover { background: var(--dark-blue); transform: translateY(-5px); }
     </style>
 </head>
 <body>
+
+    <button id="scrollTop" title="Go to top">↑</button>
 
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
@@ -148,7 +99,7 @@
         </div>
     </header>
 
-    <section id="books" class="section-padding">
+    <section id="books" class="section-padding reveal">
         <div class="container">
             <h2 class="text-center mb-5 fw-bold display-6">Our Latest Publications</h2>
             <div class="row justify-content-center">
@@ -166,95 +117,60 @@
         </div>
     </section>
 
-    <section id="videos" class="section-padding bg-light-gray">
+    <section id="videos" class="section-padding bg-light-gray reveal">
         <div class="container">
             <h2 class="text-center mb-5 fw-bold display-6">Concept Video Tutorials</h2>
             <div class="owl-carousel video-carousel owl-theme">
-                
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/Sc6S3oI0j-k" allowfullscreen></iframe>
-                </div>
-
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/YpXpWvY5X70" allowfullscreen></iframe>
-                </div>
-
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/Sc6S3oI0j-k" allowfullscreen></iframe>
-                </div>
-
+                <div class="video-container"><iframe src="https://www.youtube.com/embed/Sc6S3oI0j-k" allowfullscreen></iframe></div>
+                <div class="video-container"><iframe src="https://www.youtube.com/embed/YpXpWvY5X70" allowfullscreen></iframe></div>
+                <div class="video-container"><iframe src="https://www.youtube.com/embed/Sc6S3oI0j-k" allowfullscreen></iframe></div>
             </div>
         </div>
     </section>
 
-    <section id="testimonials" class="section-padding">
+    <section id="testimonials" class="section-padding reveal">
         <div class="container">
             <h2 class="text-center mb-5 fw-bold display-6">Student Reviews</h2>
             <div class="owl-carousel testimonial-carousel owl-theme">
-                
                 <div class="testimonial-card">
                     <div class="star-rating">★★★★★</div>
                     <p class="text-muted">"Best book for JEE Mains 2026. The logic for ligands and crystal field theory is explained so simply."</p>
-                    <hr>
-                    <h6>Aryan Singh</h6>
-                    <small>Feb 15, 2026 | Patna</small>
+                    <hr><h6>Aryan Singh</h6><small>Feb 15, 2026 | Patna</small>
                 </div>
-
                 <div class="testimonial-card">
                     <div class="star-rating">★★★★★</div>
                     <p class="text-muted">"I cleared my NEET concepts in just one week. Chemistry Spark notes are truly a game changer."</p>
-                    <hr>
-                    <h6>Ananya Sharma</h6>
-                    <small>Jan 20, 2026 | New Delhi</small>
+                    <hr><h6>Ananya Sharma</h6><small>Jan 20, 2026 | New Delhi</small>
                 </div>
-
                 <div class="testimonial-card">
                     <div class="star-rating">★★★★★</div>
                     <p class="text-muted">"Sudhir sir's teaching method is the best. The book print and binding quality is also premium."</p>
-                    <hr>
-                    <h6>Rahul Verma</h6>
-                    <small>Nov 10, 2025 | Kota</small>
+                    <hr><h6>Rahul Verma</h6><small>Nov 10, 2025 | Kota</small>
                 </div>
-
-                <div class="testimonial-card">
-                    <div class="star-rating">★★★★★</div>
-                    <p class="text-muted">"Finally a publication that doesn't just ask us to rote learn. Highly recommended!"</p>
-                    <hr>
-                    <h6>Priya Patel</h6>
-                    <small>Aug 22, 2024 | Ahmedabad</small>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <section class="newsletter-section">
+    <section class="newsletter-section reveal">
         <div class="container text-center">
             <h2 class="text-white mb-3">Join the Chemistry Spark Circle</h2>
             <p class="mb-4 text-white-50">Get free chemistry notes and launch offers in your inbox.</p>
-            
             <form class="newsletter-form shadow-lg" action="https://t.me/sudhir_nama_Sir" method="get" target="_blank">
                 <input type="email" name="text" placeholder="Enter your email" required style="min-width: 150px;">
                 <button type="submit" class="btn btn-dark rounded-pill px-4 mx-1 my-1">Join Now</button>
             </form>
-            <small class="text-white-50 d-block mt-2">Clicking Join will connect you with us on WhatsApp</small>
+            <small class="text-white-50 d-block mt-2">Clicking Join will connect you with us on Telegram</small>
         </div>
     </section>
 
-    <section class="section-padding bg-white text-center">
+    <section class="section-padding bg-white text-center reveal">
         <div class="container">
-            <img src="https://images.sudhirnama.in/images/sudhir-nama.webp" 
-                 class="founder-img mb-4" 
-                 style="width: 220px; height: 220px; object-fit: cover; border-radius: 50%; border: 8px solid #f8f9fa; box-shadow: 0 20px 40px rgba(0,0,0,0.15);" 
-                 alt="Sudhir Nama">
-            
+            <img src="https://images.sudhirnama.in/images/sudhir-nama.webp" class="founder-img mb-4" alt="Sudhir Nama">
             <h2 class="fw-bold mb-1">Sudhir Nama</h2>
             <p class="text-primary fw-bold mb-4">Founder, Chemistry Spark Publication</p>
             <div class="col-lg-6 mx-auto">
-                <p class="text-muted mb-4">A passionate chemistry educator on a mission to simplify learning for students across India. Author of multiple high-success chemistry guides.</p>
-                <div class="p-3 bg-light rounded-pill d-inline-block px-5 border">
-                    <strong>contact@sudhirnama.in</strong>
-                </div>
+                <p class="text-muted mb-4">A passionate chemistry educator on a mission to simplify learning for students across India.</p>
+                <div class="p-3 bg-light rounded-pill d-inline-block px-5 border"><strong>contact@sudhirnama.in</strong></div>
             </div>
         </div>
     </section>
@@ -262,10 +178,7 @@
     <footer style="background: #111; padding: 50px 0;">
         <div class="container text-center">
             <p class="small mb-2 text-white opacity-75">&copy; 2026 Chemistry Spark. All rights reserved.</p>
-            <p class="small mb-0 text-white">
-                A Publication By 
-                <a href="https://sudhirnama.in" class="text-white fw-bold text-decoration-none border-bottom border-white">Sudhir Nama</a>
-            </p>
+            <p class="small mb-0 text-white">A Publication By <a href="https://sudhirnama.in" class="text-white fw-bold text-decoration-none border-bottom border-white">Sudhir Nama</a></p>
         </div>
     </footer>
 
@@ -275,33 +188,21 @@
 
     <script>
         $(document).ready(function(){
-            // Video Slider
-            $(".video-carousel").owlCarousel({
-                loop: true,
-                margin: 20,
-                nav: false,
-                dots: true,
-                responsive:{
-                    0:{ items: 1 },
-                    768:{ items: 2 },
-                    1000:{ items: 2 }
-                }
-            });
+            $(".video-carousel").owlCarousel({ loop: true, margin: 20, dots: true, responsive:{0:{ items: 1 }, 768:{ items: 2 }, 1000:{ items: 2 }}});
+            $(".testimonial-carousel").owlCarousel({ loop: true, margin: 10, dots: true, autoplay: true, autoplayTimeout: 5000, responsive:{0:{ items: 1 }, 768:{ items: 2 }, 1000:{ items: 3 }}});
 
-            // Testimonial Slider
-            $(".testimonial-carousel").owlCarousel({
-                loop: true,
-                margin: 10,
-                nav: false,
-                dots: true,
-                autoplay: true,
-                autoplayTimeout: 5000,
-                responsive:{
-                    0:{ items: 1 },
-                    768:{ items: 2 },
-                    1000:{ items: 3 }
-                }
+            // Reveal Animation
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+            }, { threshold: 0.15 });
+            document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+            // Scroll Top Logic
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 300) { $('#scrollTop').addClass('show'); } 
+                else { $('#scrollTop').removeClass('show'); }
             });
+            $('#scrollTop').click(function() { $('html, body').animate({scrollTop: 0}, 600); return false; });
         });
     </script>
 </body>
