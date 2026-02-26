@@ -1,1 +1,4 @@
+User-agent: *
+Allow: /
 
+Sitemap: https://chemistryspark.sudhirnama.in/sitemap.xml
