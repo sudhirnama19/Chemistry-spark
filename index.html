@@ -12,6 +12,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 
     <style>
+
+        /* --- PREVENTS HEADER FROM CUTTING OFF TEXT --- */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 110px !important; /* Adjust this number to match your header height */
+}
+
+/* Specific fix for the sections being linked */
+#books, #videos, #blog, .section-title {
+    scroll-margin-top: 110px !important;
+}
         :root { --primary-blue: #007bff; --dark-blue: #0056b3; }
         body { font-family: 'Inter', sans-serif; color: #333; scroll-behavior: smooth; padding-top: 85px; background: #fff; }
         h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
