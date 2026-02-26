@@ -226,6 +226,42 @@ body {
     border: none !important;
     outline: none !important;
 }
+        /* FORCE VISIBLE MENU BUTTON */
+.navbar-toggler {
+    border: none !important;
+    padding: 10px !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* This makes the 3 lines (bars) dark and visible */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+}
+
+/* PROFESSIONAL MOBILE DROPDOWN */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: #ffffff !important;
+        position: absolute;
+        top: 70px; /* Adjust based on header height */
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        border-bottom: 3px solid #007bff;
+        z-index: 9999;
+        /* Smooth Animation */
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .nav-link {
+        color: #111 !important;
+        font-weight: 700 !important;
+        padding: 12px 0 !important;
+        border-bottom: 1px solid #f0f0f0;
+    }
+}
     </style>
 </head>
 <body>
