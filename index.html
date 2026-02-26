@@ -111,31 +111,45 @@
     letter-spacing: -0.5px; /* Professional HyperMag touch */
     margin-left: 10px; 
         }
-/* --- 1. MODERN FLOATING MENU (FIXED WIDTH & NO LAG) --- */
+/* --- 1. MODERN FLOATING MENU (FIXED OVERLAP & STRAY LINE) --- */
 @media (max-width: 991px) {
     .navbar-collapse {
         background: #ffffff !important;
         position: absolute;
-        top: 75px; 
         
-        /* THE RESIZE FIX: Creates a 4% gap on each side */
+        /* FIX: Increased top to 85px to stop overlapping your logo */
+        top: 85px !important; 
+        
         left: 4% !important; 
         width: 92% !important; 
-        
         padding: 15px 20px;
         border-radius: 16px; 
         border-bottom: 2px solid #007bff; 
         box-shadow: 0 12px 35px rgba(0,0,0,0.15);
         z-index: 9999;
 
-        /* THE LAG FIX: Hardware Acceleration */
-        /* We use transform/opacity because height animations cause mobile lag */
+        /* FIX: This makes the menu 100% invisible when closed (removes the line) */
         display: block !important;
-        visibility: hidden;
+        visibility: hidden; 
         opacity: 0;
-        transform: translateY(-10px);
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease !important;
+        transform: translateY(-20px); 
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, visibility 0.3s !important;
     }
+
+    /* Professional slide-in effect when 'show' class is added by Bootstrap */
+    .navbar-collapse.show {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .nav-link {
+        padding: 12px 0 !important;
+        border-bottom: 1px solid #f8f9fa;
+        font-weight: 700 !important;
+        color: #111 !important;
+    }
+}
 
     .navbar-collapse.show {
         visibility: visible;
