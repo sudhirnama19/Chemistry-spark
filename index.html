@@ -165,17 +165,17 @@
     }
 }
 
-/* --- SEARCH BUBBLE FIX --- */
+/* --- SEARCH BUBBLE: PILL SHAPE FIX --- */
 .search-container {
     display: flex !important;
     align-items: center !important;
-    background: #f1f1f1 !important; /* The Grey Bubble Color */
-    border-radius: 50px !important;
-    padding: 10px 18px !important;
-    margin: 15px 0 5px 0 !important;
+    background: #f1f1f1 !important; /* The grey bubble color */
+    border-radius: 50px !important; /* Makes it a pill shape */
+    padding: 12px 20px !important;
+    margin: 15px 0 10px 0 !important;
     width: 100% !important;
-    box-sizing: border-box !important;
     border: none !important;
+    box-sizing: border-box !important;
 }
 
 .search-input {
@@ -183,27 +183,27 @@
     background: transparent !important;
     outline: none !important;
     flex-grow: 1 !important;
-    font-size: 0.95rem !important;
-    color: #333 !important;
+    font-size: 1rem !important;
+    color: #666 !important;
     padding: 0 10px !important;
 }
 
-/* Ensure Live Dot is perfectly round and aligned */
+/* LIVE DOT: PREVENTS DISTORTION */
 .live-dot {
     height: 10px !important;
     width: 10px !important;
     background-color: #ff0000 !important;
     border-radius: 50% !important;
-    flex-shrink: 0 !important;
+    flex-shrink: 0 !important; /* STOPS THE DOT FROM SQUEEZING */
     animation: pulse-red 1.5s infinite !important;
 }
 
 @keyframes pulse-red {
     0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
-    70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(255, 0, 0, 0); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(255, 0, 0, 0); }
     100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
 }
-
+        
 /* --- 3. HEADER & LOGO ALIGNMENT --- */
 :root { 
     --header-height: 75px;
@@ -312,7 +312,7 @@
     <input type="hidden" name="as_sitesearch" value="sudhirnama.in">
     <input type="text" name="q" class="search-input" placeholder="Search my site..." required>
     
-    <button type="submit" style="border:none; background:none; color:#555; padding:0; display:flex; align-items:center;">
+    <button type="submit" style="border:none; background:none; color:#777; padding:0; display:flex; align-items:center;">
         <i class="fas fa-search"></i>
     </button>
 </form>
