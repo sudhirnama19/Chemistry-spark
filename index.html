@@ -13,15 +13,22 @@
 
     <style>
 
-        /* --- PREVENTS HEADER FROM CUTTING OFF TEXT --- */
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 130px !important; /* Adjust this number to match your header height */
+        /* --- SCROLL SPACING CONTROL CENTER --- */
+:root {
+    /* MODIFY THIS NUMBER TO INCREASE/DECREASE SPACE */
+    --scroll-gap: 120px; 
 }
 
-/* Specific fix for the sections being linked */
-#books, #videos, #blog, .section-title {
-    scroll-margin-top: 130px !important;
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--scroll-gap) !important;
+}
+
+/* Apply the gap to every section and title */
+#books, #videos, #blog, 
+.section-title, 
+h2, h1 {
+    scroll-margin-top: var(--scroll-gap) !important;
 }
         :root { --primary-blue: #007bff; --dark-blue: #0056b3; }
         body { font-family: 'Inter', sans-serif; color: #333; scroll-behavior: smooth; padding-top: 85px; background: #fff; }
