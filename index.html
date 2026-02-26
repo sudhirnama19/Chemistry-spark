@@ -268,31 +268,30 @@ body {
 
     <button id="scrollTop" title="Go to top">↑</button>
 
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="https://sudhirnama.in">
             <div class="brand-logo-box">
-                <img src="https://images.sudhirnama.in/images/chemistry-spark.webp" alt="Chemistry Spark">
+                <img src="https://images.sudhirnama.in/images/chemistry-spark.webp" alt="Logo">
             </div>
-            <span class="brand-text">Chemistry Spark</span>
+            <span class="brand-text" style="font-weight:800; margin-left:10px; color:#111;">Chemistry Spark</span>
         </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#smoothNav">
-            <i class="fas fa-bars" style="font-size: 1.4rem; color: #111;"></i>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hyperNav">
+            <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="smoothNav">
+        <div class="collapse navbar-collapse" id="hyperNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="#books">Books</a></li>
                 <li class="nav-item"><a class="nav-link" href="#videos">Videos</a></li>
                 <li class="nav-item"><a class="nav-link" href="https://sudhirnama.in">Blog</a></li>
             </ul>
-
-            <form class="search-container" action="https://www.google.com/search" method="GET" target="_self">
-                <span class="live-dot"></span>
+            
+            <form class="search-container mt-2 mt-lg-0" action="https://www.google.com/search" method="GET">
                 <input type="hidden" name="as_sitesearch" value="sudhirnama.in">
-                <input type="text" name="q" class="search-input" placeholder="Search topics..." required>
-                <button type="submit" style="border:none; background:none;"><i class="fas fa-search"></i></button>
+                <input type="text" name="q" class="search-input" placeholder="Search..." required style="background:#f1f1f1; border-radius:20px; border:none; padding:5px 15px;">
+                <button type="submit" style="border:none; background:none; margin-left:-30px;"><i class="fas fa-search"></i></button>
             </form>
         </div>
     </div>
