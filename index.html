@@ -111,37 +111,44 @@
     letter-spacing: -0.5px; /* Professional HyperMag touch */
     margin-left: 10px; 
         }
-/* --- 1. MODERN FLOATING MENU (FIXED OVERLAP & STRAY LINE) --- */
+/* --- FIXED FLOATING MENU (FOLLOWS SCROLL + BLUR EFFECT) --- */
 @media (max-width: 991px) {
     .navbar-collapse {
-        background: #ffffff !important;
-        position: absolute;
+        /* We use an 'rgba' white so the blur effect is visible through the menu */
+        background: rgba(255, 255, 255, 0.92) !important;
         
-        /* FIX: Increased top to 85px to stop overlapping your logo */
+        /* FROSTED GLASS BLUR EFFECT */
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        
+        /* CHANGE: Fixed position ensures it stays in front of the user while scrolling */
+        position: fixed !important;
         top: 85px !important; 
-        
         left: 4% !important; 
         width: 92% !important; 
         padding: 15px 20px;
         border-radius: 16px; 
         border-bottom: 2px solid #007bff; 
         box-shadow: 0 12px 35px rgba(0,0,0,0.15);
-        z-index: 9999;
+        
+        /* High z-index to stay above YouTube videos and book images */
+        z-index: 99999 !important;
 
-        /* FIX: This makes the menu 100% invisible when closed (removes the line) */
+        /* Hardware Acceleration for zero lag */
         display: block !important;
-        visibility: hidden; 
+        visibility: hidden;
         opacity: 0;
-        transform: translateY(-20px); 
+        transform: translateY(-20px);
         transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, visibility 0.3s !important;
     }
 
-    /* Professional slide-in effect when 'show' class is added by Bootstrap */
+    /* Show state when menu is toggled */
     .navbar-collapse.show {
         visibility: visible;
         opacity: 1;
         transform: translateY(0);
     }
+}
     
     .nav-link {
         padding: 12px 0 !important;
