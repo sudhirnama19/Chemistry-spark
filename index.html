@@ -165,34 +165,38 @@
     }
 }
 
-/* --- SEARCH BUBBLE: PILL SHAPE FIX --- */
+/* --- SEARCH BUBBLE: PILL SHAPE & CIRCULAR DOT FIX --- */
 .search-container {
     display: flex !important;
     align-items: center !important;
-    background: #f1f1f1 !important; /* The grey bubble color */
-    border-radius: 50px !important; /* Makes it a pill shape */
-    padding: 12px 20px !important;
+    background-color: #f1f1f1 !important; /* THE GREY BUBBLE */
+    border-radius: 50px !important; /* PILL SHAPE */
+    padding: 8px 18px !important;
     margin: 15px 0 10px 0 !important;
     width: 100% !important;
     border: none !important;
     box-sizing: border-box !important;
 }
+
 .search-input {
     border: none !important;
     background: transparent !important;
     outline: none !important;
     flex-grow: 1 !important;
-    font-size: 1rem !important;
+    font-size: 0.95rem !important;
     color: #666 !important;
     padding: 0 10px !important;
+    height: 30px !important;
 }
-/* LIVE DOT: PREVENTS DISTORTION */
+
+/* LIVE DOT: FORCED TO BE CIRCULAR */
 .live-dot {
     height: 10px !important;
     width: 10px !important;
+    min-width: 10px !important; /* PREVENTS SQUEEZING */
     background-color: #ff0000 !important;
     border-radius: 50% !important;
-    flex-shrink: 0 !important; /* STOPS THE DOT FROM SQUEEZING */
+    flex-shrink: 0 !important;
     animation: pulse-red 1.5s infinite !important;
 }
 
@@ -309,7 +313,7 @@
     <input type="hidden" name="as_sitesearch" value="sudhirnama.in">
     <input type="text" name="q" class="search-input" placeholder="Search my site..." required>
     
-    <button type="submit" style="border:none; background:none; color:#777; padding:0; display:flex; align-items:center;">
+    <button type="submit" style="border:none; background:none; color:#777; padding:0; display:flex; align-items:center; cursor:pointer;">
         <i class="fas fa-search"></i>
     </button>
 </form>
