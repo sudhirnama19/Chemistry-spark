@@ -95,35 +95,41 @@
 .brand-logo-box img { width: 100%; height: 100%; object-fit: contain; }
 .brand-text { font-weight: 800; font-size: 1.4rem; color: #1a1a1a; letter-spacing: -0.5px; margin-left: 10px; }
 
-/* Mobile Menu Fix */
+/* --- 1. MODERN FLOATING MENU FIX (GPU ACCELERATED) --- */
 @media (max-width: 991px) {
     .navbar-collapse {
-        background: #ffffff; /* Solid background so text behind it doesn't show */
-        padding: 15px;
-        border-radius: 0 0 15px 15px;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        margin-top: 10px;
+        background: #ffffff !important;
+        position: absolute;
+        top: 75px; 
+        left: 4%; /* Gap from left edge */
+        width: 92%; /* Professional floating width */
+        padding: 15px 20px;
+        border-radius: 16px; /* Modern rounded corners */
+        border-bottom: 2px solid #007bff; /* Thinner professional line */
+        box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+        z-index: 9999;
+        
+        /* Stop Lag: Hardware acceleration fix */
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease !important;
     }
+    
     .nav-link {
-        padding: 12px 0;
+        padding: 12px 0 !important;
         border-bottom: 1px solid #f8f9fa;
-    }
-    .search-container { 
-        margin: 15px 0 5px 0 !important; 
-        width: 100% !important; 
+        font-weight: 700 !important;
+        color: #111 !important;
     }
 }
 
-/* HyperMag Optimized Search Bar */
-
+/* --- 2. TRACEABLE SEARCH BAR & RED PULSE --- */
 .search-container {
     display: flex;
     align-items: center;
     background: #f1f1f1;
     border-radius: 50px;
-    padding: 8px 15px;
+    padding: 8px 18px;
     margin: 15px 0 5px 0;
-    cursor: text; /* Entire bar shows text cursor */
+    cursor: text; 
     width: 100%;
 }
 
@@ -131,25 +137,25 @@
     border: none;
     background: transparent;
     outline: none;
-    flex-grow: 1; /* Makes the typing area fill the whole gray bar */
+    flex-grow: 1; /* Makes entire bar clickable/traceable */
     font-size: 0.95rem;
     width: 100%;
 }
 
 /* LIVE RED PULSE DOT */
 .live-dot {
-    height: 8px;
-    width: 8px;
+    height: 9px;
+    width: 9px;
     background-color: #ff0000;
     border-radius: 50%;
-    margin-right: 10px;
+    margin-right: 12px;
     flex-shrink: 0;
     animation: pulse-red 1.5s infinite;
 }
 
 @keyframes pulse-red {
     0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
-    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(255, 0, 0, 0); }
+    70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(255, 0, 0, 0); }
     100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
 }
 
@@ -160,28 +166,12 @@
     padding: 0;
     cursor: pointer;
 }
-.search-btn { border: none; background: transparent; color: #555; cursor: pointer; }
 
-/* Live Dot */
-.live-dot {
-    height: 8px; width: 8px;
-    background-color: #ff0000;
-    border-radius: 50%;
-    margin-right: 8px;
-    animation: pulse 1.5s infinite;
-}
-@keyframes pulse {
-    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
-    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 0, 0, 0); }
-    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
-}
-        /* FIX FOR SCROLLING AND HEADER */
+/* --- 3. HEADER & LOGO ALIGNMENT --- */
 :root { 
     --header-height: 75px;
-    --primary-blue: #007bff;
 }
 
-/* This line allows the page to scroll properly */
 body { 
     padding-top: var(--header-height) !important; 
     overflow-y: auto !important; 
@@ -195,39 +185,9 @@ body {
     z-index: 2000;
 }
 
-/* Mobile Dropdown Fix */
-@media (max-width: 991px) {
-    .navbar-collapse {
-        background: #ffffff;
-        padding: 20px;
-        border-bottom: 3px solid var(--primary-blue);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
-}
-
-/* Logo & Search Bar Styles */
 .brand-logo-box { width: 40px; height: 40px; background: #fff; border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 3px 8px rgba(0,0,0,0.1); }
 .brand-logo-box img { width: 100%; height: 100%; object-fit: contain; }
 .brand-text { font-weight: 800; font-size: 1.4rem; color: #1a1a1a; margin-left: 10px; }
-.search-container { display: flex; align-items: center; background: #f1f1f1; border-radius: 50px; padding: 5px 15px; margin-left: 15px; }
-.search-input { border: none; background: transparent; outline: none; padding: 5px; width: 150px; }
-.live-dot { height: 8px; width: 8px; background: red; border-radius: 50%; margin-right: 8px; animation: pulse 1.5s infinite; }
-@keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
-
-        /* MODERN FLOATING MENU & SEARCH FIX */
-@media (max-width: 991px) {
-    .navbar-collapse {
-        background: #ffffff !important;
-        position: absolute;
-        top: 75px; 
-        left: 3%; /* Creates a gap from the left edge */
-        width: 94%; /* Reduces width to look like a card */
-        padding: 15px 20px;
-        border-radius: 15px; /* Rounded corners */
-        border-bottom: 2px solid #007bff; /* Thinner professional line */
-        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        z-index: 9999;
-    }
         
         /* The Magic: Use transform instead of height to stop lag */
         display: block !important;
