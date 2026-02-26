@@ -165,33 +165,37 @@
     }
 }
 
-/* --- SEARCH BAR FIX --- */
+/* --- SEARCH BUBBLE FIX --- */
 .search-container {
-    background: #f1f1f1;
-    border-radius: 50px;
-    padding: 10px 18px; /* Balanced padding */
-    margin: 15px 0 5px 0;
-    width: 100%;
-    box-sizing: border-box; /* Prevents width distortion */
+    display: flex !important;
+    align-items: center !important;
+    background: #f1f1f1 !important; /* The Grey Bubble Color */
+    border-radius: 50px !important;
+    padding: 10px 18px !important;
+    margin: 15px 0 5px 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    border: none !important;
 }
 
 .search-input {
     border: none !important;
     background: transparent !important;
     outline: none !important;
-    font-size: 0.95rem;
-    color: #333;
-    padding-left: 5px;
+    flex-grow: 1 !important;
+    font-size: 0.95rem !important;
+    color: #333 !important;
+    padding: 0 10px !important;
 }
 
-/* LIVE RED PULSE DOT FIX */
+/* Ensure Live Dot is perfectly round and aligned */
 .live-dot {
-    height: 10px;
-    width: 10px;
-    background-color: #ff0000;
-    border-radius: 50%;
-    margin-right: 12px;
-    animation: pulse-red 1.5s infinite;
+    height: 10px !important;
+    width: 10px !important;
+    background-color: #ff0000 !important;
+    border-radius: 50% !important;
+    flex-shrink: 0 !important;
+    animation: pulse-red 1.5s infinite !important;
 }
 
 @keyframes pulse-red {
@@ -302,13 +306,13 @@
                 <li class="nav-item"><a class="nav-link" href="https://sudhirnama.in">Blog</a></li>
             </ul>
             
-            <form class="search-container" action="https://www.google.com/search" method="GET" target="_self" style="display: flex; align-items: center;">
-    <span class="live-dot" style="display: inline-block; flex-shrink: 0;"></span>
+            <form class="search-container" action="https://www.google.com/search" method="GET" target="_self">
+    <span class="live-dot"></span>
     
     <input type="hidden" name="as_sitesearch" value="sudhirnama.in">
-    <input type="text" name="q" class="search-input" placeholder="Search my site..." required style="flex-grow: 1; width: 100%;">
+    <input type="text" name="q" class="search-input" placeholder="Search my site..." required>
     
-    <button type="submit" style="border:none; background:none; color:#555; padding:0; flex-shrink: 0;">
+    <button type="submit" style="border:none; background:none; color:#555; padding:0; display:flex; align-items:center;">
         <i class="fas fa-search"></i>
     </button>
 </form>
