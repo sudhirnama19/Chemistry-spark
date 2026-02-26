@@ -323,7 +323,30 @@ h2, h1 {
         padding: 12px 0 !important;
         border-bottom: 1px solid #f0f0f0;
     }
-}
+
+        /* --- OPTION 1: CUSTOM SLIM BLUE SCROLLBAR --- */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-blue);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--dark-blue);
+        }
+
+        /* --- OPTION 2: MICRO-INTERACTIONS (CARD HOVER) --- */
+        .book-card, .testimonial-card, .video-container {
+            transition: all 0.3s ease-in-out !important;
+        }
+        .book-card:hover, .testimonial-card:hover, .video-container:hover {
+            transform: translateY(-10px) !important;
+            box-shadow: 0 20px 40px rgba(0, 123, 255, 0.15) !important;
+        }
     </style>
 </head>
 <body>
