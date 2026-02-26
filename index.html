@@ -71,10 +71,10 @@
         #scrollTop.show { opacity: 1; visibility: visible; }
         #scrollTop:hover { background: var(--dark-blue); transform: translateY(-5px); }
 
-        /* HYPERMAG HEADER FIXES */
+        /* HYPERMAG HEADER FIXES - SCROLL RECOVERY */
 :root { 
     --primary-blue: #007bff; 
-    --header-height: 70px;
+    --header-height: 75px;
 }
 
 .navbar { 
@@ -82,39 +82,37 @@
     min-height: var(--header-height); 
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     border-bottom: 1px solid #eee;
-    z-index: 1050; /* Ensures it stays above everything */
+    z-index: 2000; /* High priority */
 }
 
-/* Logo & Text */
-.brand-logo-box {
-    width: 40px; height: 40px;
-    background: #fff; border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    overflow: hidden; box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+/* Fix for Content Scrolling */
+body {
+    padding-top: var(--header-height) !important;
+    overflow-x: hidden;
 }
-.brand-logo-box img { width: 100%; height: 100%; object-fit: contain; }
-.brand-text { font-weight: 800; font-size: 1.4rem; color: #1a1a1a; letter-spacing: -0.5px; margin-left: 10px; }
 
 /* Mobile Menu Fix */
 @media (max-width: 991px) {
     .navbar-collapse {
-        background: #ffffff; /* Solid background so text behind it doesn't show */
+        background: #ffffff;
         padding: 15px;
-        border-radius: 0 0 15px 15px;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        margin-top: 10px;
+        border-bottom: 2px solid var(--primary-blue);
+        box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+        max-height: 80vh; /* Prevents menu from taking full screen */
+        overflow-y: auto; /* Allows menu itself to scroll if long */
     }
-    .nav-link {
-        padding: 12px 0;
-        border-bottom: 1px solid #f8f9fa;
-    }
-    .search-container { 
-        margin: 15px 0 5px 0 !important; 
-        width: 100% !important; 
+    
+    /* Ensure the body is scrollable when menu is closed */
+    .navbar-collapse.collapsing, .navbar-collapse.show {
+        z-index: 1001;
     }
 }
 
-/* Search Bar */
+/* Search & Logo Styles */
+.brand-logo-box { width: 40px; height: 40px; background: #fff; border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 3px 8px rgba(0,0,0,0.1); }
+.brand-logo-box img { width: 100%; height: 100%; object-fit: contain; }
+.brand-text { font-weight: 800; font-size: 1.4rem; color: #1a1a1a; margin-left: 10px; }
+
 .search-container {
     position: relative;
     display: flex;
@@ -124,24 +122,10 @@
     padding: 5px 15px;
     margin-left: 20px;
 }
-.search-input {
-    border: none;
-    background: transparent;
-    outline: none;
-    padding: 5px;
-    font-size: 0.9rem;
-    width: 160px;
-}
+.search-input { border: none; background: transparent; outline: none; padding: 5px; font-size: 0.9rem; width: 160px; }
 .search-btn { border: none; background: transparent; color: #555; cursor: pointer; }
 
-/* Live Dot */
-.live-dot {
-    height: 8px; width: 8px;
-    background-color: #ff0000;
-    border-radius: 50%;
-    margin-right: 8px;
-    animation: pulse 1.5s infinite;
-}
+.live-dot { height: 8px; width: 8px; background-color: #ff0000; border-radius: 50%; margin-right: 8px; animation: pulse 1.5s infinite; }
 @keyframes pulse {
     0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
     70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 0, 0, 0); }
@@ -300,5 +284,18 @@
             $('#scrollTop').click(function() { $('html, body').animate({scrollTop: 0}, 600); return false; });
         });
     </script>
+        <script>
+$(document).ready(function() {
+    // Auto-close mobile menu when a link is clicked
+    $('.navbar-nav .nav-link').on('click', function(){
+        $('.navbar-collapse').collapse('hide');
+    });
+
+    // Fix for scroll lock issue
+    $('.navbar-toggler').on('click', function() {
+        $('body').toggleClass('menu-open');
+    });
+});
+        </script>
 </body>
 </html>
