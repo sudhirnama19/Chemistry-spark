@@ -71,7 +71,13 @@ h2, h1 {
     transition: 0.3s; 
     border: none; 
 }
-        .btn-buy:hover { background: var(--dark-blue); transform: translateY(-3px); color: white; box-shadow: 0 5px 15px rgba(0,123,255,0.3); }
+        .btn-buy:hover { 
+    background: var(--dark-blue) !important; 
+    transform: translateY(-3px); 
+    color: white !important; 
+    box-shadow: 0 5px 15px rgba(0,123,255,0.3);
+    /* No need to add width here, it will inherit from .btn-buy */
+}
 
         /* --- OWL SLIDERS --- */
         .section-padding { padding: 60px 0; }
