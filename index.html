@@ -114,23 +114,52 @@
     }
 }
 
-/* Search Bar */
+/* HyperMag Optimized Search Bar */
 .search-container {
-    position: relative;
     display: flex;
     align-items: center;
     background: #f1f1f1;
     border-radius: 50px;
-    padding: 5px 15px;
-    margin-left: 20px;
+    padding: 8px 15px; /* Added padding for a larger hit area */
+    margin: 10px 0;
+    cursor: text; /* Shows text cursor even on the bar background */
+    position: relative;
+    width: 100%;
 }
+
 .search-input {
     border: none;
     background: transparent;
     outline: none;
-    padding: 5px;
-    font-size: 0.9rem;
-    width: 160px;
+    padding: 0 5px;
+    font-size: 0.95rem;
+    flex-grow: 1; /* Makes the input occupy the whole bar */
+    width: 100%;
+}
+
+/* Live Red Pulse Dot */
+.live-dot {
+    height: 8px;
+    width: 8px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    margin-right: 10px;
+    flex-shrink: 0;
+    animation: pulse-red 1.5s infinite;
+}
+
+@keyframes pulse-red {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(255, 0, 0, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+}
+
+.search-btn {
+    border: none;
+    background: transparent;
+    color: #555;
+    padding: 0;
+    cursor: pointer;
 }
 .search-btn { border: none; background: transparent; color: #555; cursor: pointer; }
 
@@ -288,11 +317,16 @@ body {
                 <li class="nav-item"><a class="nav-link" href="https://sudhirnama.in">Blog</a></li>
             </ul>
             
-            <form class="search-container mt-2 mt-lg-0" action="https://www.google.com/search" method="GET">
-                <input type="hidden" name="as_sitesearch" value="sudhirnama.in">
-                <input type="text" name="q" class="search-input" placeholder="Search..." required style="background:#f1f1f1; border-radius:20px; border:none; padding:5px 15px;">
-                <button type="submit" style="border:none; background:none; margin-left:-30px;"><i class="fas fa-search"></i></button>
-            </form>
+            <form class="search-container" action="https://www.google.com/search" method="GET" target="_self">
+    <span class="live-dot"></span>
+    
+    <input type="hidden" name="as_sitesearch" value="sudhirnama.in">
+    <input type="text" name="q" class="search-input" placeholder="Search my site..." required>
+    
+    <button type="submit" class="search-btn">
+        <i class="fas fa-search"></i>
+    </button>
+</form>
         </div>
     </div>
 </nav>
