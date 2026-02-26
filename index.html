@@ -165,42 +165,32 @@
     }
 }
 
-/* --- SEARCH BUBBLE: PILL SHAPE & CIRCULAR DOT FIX --- */
-.search-container {
+/* POWERFUL OVERRIDE - SPECIFIC ID SELECTOR */
+#custom-search-bubble {
     display: flex !important;
     align-items: center !important;
     background-color: #f1f1f1 !important; /* THE GREY BUBBLE */
-    border-radius: 50px !important; /* PILL SHAPE */
-    padding: 8px 18px !important;
+    border-radius: 50px !important;
+    padding: 10px 20px !important;
     margin: 15px 0 10px 0 !important;
     width: 100% !important;
     border: none !important;
     box-sizing: border-box !important;
 }
 
-.search-input {
+#custom-search-bubble .search-input {
     border: none !important;
     background: transparent !important;
     outline: none !important;
-    flex-grow: 1 !important;
-    font-size: 0.95rem !important;
-    color: #666 !important;
+    flex: 1 !important;
+    font-size: 16px !important; /* Prevents iOS zoom-in */
+    color: #555 !important;
     padding: 0 10px !important;
-    height: 30px !important;
+    box-shadow: none !important;
 }
 
-/* LIVE DOT: FORCED TO BE CIRCULAR */
-.live-dot {
-    height: 10px !important;
-    width: 10px !important;
-    min-width: 10px !important; /* PREVENTS SQUEEZING */
-    background-color: #ff0000 !important;
-    border-radius: 50% !important;
-    flex-shrink: 0 !important;
-    animation: pulse-red 1.5s infinite !important;
-}
-
-@keyframes pulse-red {
+/* DOT ANIMATION ONLY */
+@keyframes pulse-red-fixed {
     0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
     70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(255, 0, 0, 0); }
     100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
@@ -307,13 +297,14 @@
                 <li class="nav-item"><a class="nav-link" href="https://sudhirnama.in">Blog</a></li>
             </ul>
             
-            <form class="search-container" action="https://www.google.com/search" method="GET" target="_self">
-    <span class="live-dot"></span>
+            <form id="custom-search-bubble" action="https://www.google.com/search" method="GET" target="_self">
+    
+    <span style="height: 10px !important; width: 10px !important; min-width: 10px !important; background-color: red !important; border-radius: 50% !important; display: inline-block !important; flex-shrink: 0 !important; animation: pulse-red-fixed 1.5s infinite !important;"></span>
     
     <input type="hidden" name="as_sitesearch" value="sudhirnama.in">
     <input type="text" name="q" class="search-input" placeholder="Search my site..." required>
     
-    <button type="submit" style="border:none; background:none; color:#777; padding:0; display:flex; align-items:center; cursor:pointer;">
+    <button type="submit" style="border:none !important; background:none !important; color:#777 !important; padding:0 !important; cursor:pointer !important; display: flex !important; align-items: center !important;">
         <i class="fas fa-search"></i>
     </button>
 </form>
