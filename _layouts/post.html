@@ -5,126 +5,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }} | Chemistry Spark</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
     <style>
-        /* 3D Glassmorphism Header */
-        .glass-header {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1050;
-            padding: 12px 0;
+        :root { --primary-blue: #007bff; --dark-blue: #0056b3; }
+        body { font-family: 'Inter', sans-serif; background: #f8f9fa; padding-top: 100px; }
+        h1 { font-family: 'Playfair Display', serif; font-weight: 800; color: #111; }
+
+        /* --- 3D GLASS HEADER (MATCHES INDEX.HTML) --- */
+        .navbar { 
+            background: #ffffff !important; 
+            min-height: 85px; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-bottom: 1px solid #eee;
+            z-index: 1050; 
         }
 
-        body { 
-            padding-top: 100px; 
-            background-color: #f5f7fa; 
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        .brand-logo-box { 
+            width: 40px; height: 40px; background: #fff; border-radius: 8px; 
+            display: flex; align-items: center; justify-content: center; 
+            overflow: hidden; box-shadow: 0 3px 8px rgba(0,0,0,0.1); 
         }
 
-        /* Modern Floating Menu Card */
-        .custom-menu-card {
-            background: #ffffff;
-            border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-            border: 1px solid rgba(0,0,0,0.05);
-            padding: 24px;
-            margin-top: 10px;
+        /* --- FLOATING HYPER-MENU (MATCHES INDEX.HTML LOGIC) --- */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background: #ffffff !important;
+                position: fixed !important;
+                top: 85px !important; 
+                left: 4% !important; 
+                width: 92% !important; 
+                padding: 20px !important;
+                border-radius: 20px !important; 
+                border-bottom: 3px solid #007bff !important; 
+                box-shadow: 0 15px 45px rgba(0,0,0,0.3) !important;
+                z-index: 999999 !important;
+            }
         }
 
-        .menu-item {
-            padding: 14px 18px;
-            font-weight: 600;
-            color: #2d3436;
-            text-decoration: none;
-            display: block;
-            border-bottom: 1px solid #f1f1f1;
-            transition: 0.2s;
+        .nav-link { font-weight: 700 !important; color: #111 !important; border-bottom: 1px solid #eee; padding: 15px 0 !important; }
+
+        /* --- SEARCH BUBBLE WITH RED DOT (MATCHES INDEX.HTML) --- */
+        .search-bubble {
+            background: #f1f1f1; border-radius: 50px; padding: 5px 15px; 
+            display: flex; align-items: center; margin-top: 15px; width: 100%;
         }
 
-        .menu-item:hover { color: #007bff; background: #f8f9fa; border-radius: 8px; }
-        .menu-item:last-of-type { border-bottom: none; }
-
-        /* Working Search Bar Style */
-        .search-container-box {
-            background: #f1f3f4;
-            border-radius: 30px;
-            padding: 8px 18px;
-            margin-top: 18px;
-            display: flex;
-            align-items: center;
+        .red-dot {
+            height: 10px; width: 10px; background-color: red; border-radius: 50%;
+            display: inline-block; animation: pulse-red 1.5s infinite; margin-right: 10px;
         }
 
-        .search-dot {
-            height: 12px;
-            width: 12px;
-            background-color: #ea4335;
-            border-radius: 50%;
-            margin-right: 12px;
-            flex-shrink: 0;
+        @keyframes pulse-red {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(255, 0, 0, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
         }
 
-        /* Article Styling */
-        .post-main-card {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 4px 25px rgba(0,0,0,0.04);
-            border: 1px solid #edf2f7;
-        }
-
-        .post-content { line-height: 1.8; color: #2d3748; font-size: 1.15rem; }
+        /* --- POST CONTENT CARD --- */
+        .post-card { background: white; border-radius: 15px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .post-body { line-height: 1.8; font-size: 1.1rem; color: #444; }
     </style>
 </head>
 <body>
 
-<header class="glass-header">
-    <div class="container d-flex justify-content-between align-items-center">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="/">
-            <img src="https://images.sudhirnama.in/images/chemistry-spark.webp" width="42" height="42" class="rounded-circle me-2" alt="chemistry spark publication Logo">
-            <span class="fw-bold text-primary fs-4">Chemistry Spark</span>
+            <div class="brand-logo-box">
+                <img src="https://images.sudhirnama.in/images/chemistry-spark.webp" width="100%" alt="Logo">
+            </div>
+            <span class="fw-bold fs-4 ms-2" style="color:#111;">Chemistry Spark</span>
         </a>
-        
-        <button class="btn border-0 p-1" type="button" data-bs-toggle="collapse" data-bs-target="#floatingMenu">
-            <svg width="32" height="32" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 7h22M4 15h22M4 23h22" stroke="#333" stroke-width="2.5" stroke-linecap="round"/>
-            </svg>
-        </button>
-    </div>
-</header>
 
-<div class="collapse container" id="floatingMenu" style="position: fixed; top: 70px; z-index: 1040; left: 0; right: 0;">
-    <div class="row justify-content-end">
-        <div class="col-12 col-md-5 col-lg-4">
-            <div class="custom-menu-card">
-                <a href="/#books-section" class="menu-item">Books</a>
-                <a href="/#videos-section" class="menu-item">Videos</a>
-                <a href="/#latest-articles" class="menu-item">Blog</a>
-                
-                <form action="https://www.google.com/search" method="get" target="_blank" class="search-container-box">
-                    <span class="search-dot"></span>
-                    <input type="hidden" name="q" value="site:chemistryspark.sudhirnama.in">
-                    <input type="text" name="q" class="form-control border-0 bg-transparent p-0" placeholder="Search my site..." style="box-shadow: none; font-size: 0.95rem;">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hyperNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="hyperNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100">
+                <li class="nav-item"><a class="nav-link" href="/#books">Books</a></li>
+                <li class="nav-item"><a class="nav-link" href="/#videos">Videos</a></li>
+                <li class="nav-item"><a class="nav-link" href="/#latest-articles">Blog</a></li>
+            </ul>
+            
+            <div class="search-bubble">
+                <form action="https://www.google.com/search" method="GET" class="d-flex align-items-center w-100">
+                    <span class="red-dot"></span>
+                    <input type="hidden" name="as_sitesearch" value="chemistryspark.sudhirnama.in">
+                    <input type="text" name="q" placeholder="Search my site..." required 
+                           style="border:none; background:transparent; outline:none; flex:1; padding: 5px;">
                 </form>
             </div>
         </div>
     </div>
-</div>
+</nav>
 
-<main class="container my-4">
+<main class="container mb-5">
     <div class="row justify-content-center">
-        <div class="col-lg-9">
-            <article class="post-main-card">
-                <h1 class="fw-bold mb-3" style="color: #1a202c;">{{ page.title }}</h1>
-                <div class="text-muted mb-4 d-flex align-items-center">
-                    <span>{{ page.date | date: "%B %d, %Y" }}</span>
-                </div>
-                <hr class="mb-5">
-                <div class="post-content">
+        <div class="col-lg-8">
+            <article class="post-card">
+                <h1 class="display-5 mb-3">{{ page.title }}</h1>
+                <p class="text-muted small">Published on {{ page.date | date: "%B %d, %Y" }}</p>
+                <hr class="my-4">
+                <div class="post-body">
                     {{ content }}
                 </div>
             </article>
@@ -132,7 +116,18 @@
     </div>
 </main>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Auto-close menu on link click (Same as index.html)
+    document.addEventListener('click', function (event) {
+        var menu = document.getElementById('hyperNav');
+        if (event.target.classList.contains('nav-link')) {
+            var bsCollapse = new bootstrap.Collapse(menu, {toggle: false});
+            bsCollapse.hide();
+        }
+    });
+</script>
 
 </body>
 </html>
