@@ -695,6 +695,20 @@ h2, h1 {
         </div> </div> </section>
                     
 
+    
+
+    <section class="blog-list">
+  <h2>Latest Articles</h2>
+  <ul>
+    {% for post in site.posts %}
+      <li>
+        <a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: "%B %d, %Y" }}
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+
+    
     <section id="videos" class="section-padding bg-light-gray reveal">
         <div class="container">
             <h2 class="text-center mb-5 fw-bold display-6">Concept Video Tutorials</h2>
