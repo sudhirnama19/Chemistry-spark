@@ -742,16 +742,16 @@ h2, h1 {
   <h2>Latest Articles</h2>
   <div class="cs-card-container">
   {% for post in site.posts %}
+    <div class="cs-card-container">
+  {% for post in site.posts %}
     <div class="cs-blog-card">
       <a href="{{ post.url }}" class="cs-blog-link">{{ post.title }}</a>
       <span class="cs-blog-date">
-        <i class="far fa-calendar-alt"></i> {{ post.date | date: "%B %d, %Y" }}
+        {{ post.date | date: "%B %d, %Y" }}
       </span>
     </div>
-  {% endfor %}
-</div>
-    {% endfor %}
-  </ul>
+  {% endfor %} 
+    </div>
 </section>
 
     
