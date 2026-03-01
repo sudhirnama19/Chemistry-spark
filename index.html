@@ -739,19 +739,17 @@ h2, h1 {
     
 
     <section class="blog-list">
-  <h2>Latest Articles</h2>
   <div class="cs-card-container">
-  {% for post in site.posts %}
-    <div class="cs-card-container">
-  {% for post in site.posts %}
-    <div class="cs-blog-card">
-      <a href="{{ post.url }}" class="cs-blog-link">{{ post.title }}</a>
-      <span class="cs-blog-date">
-        {{ post.date | date: "%B %d, %Y" }}
-      </span>
-    </div>
-  {% endfor %} 
-    </div>
+    <h2 class="mb-3">Latest Articles</h2>
+    {% for post in site.posts %}
+      <div class="cs-blog-card">
+        <a href="{{ post.url }}" class="cs-blog-link">{{ post.title }}</a>
+        <div class="cs-blog-date">
+          {{ post.date | date: "%B %d, %Y" }}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
 </section>
 
     
