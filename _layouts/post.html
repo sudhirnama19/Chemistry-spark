@@ -8,65 +8,76 @@
     <style>
         /* 3D Glassmorphism Header */
         .glass-header {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             position: fixed;
             top: 0;
             width: 100%;
-            z-index: 1000;
-            padding: 10px 0;
+            z-index: 1050;
+            padding: 12px 0;
         }
 
-        body { padding-top: 100px; background-color: #f0f2f5; }
+        body { 
+            padding-top: 100px; 
+            background-color: #f5f7fa; 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
 
-        /* Modern Floating Menu (Matching your screenshot) */
+        /* Modern Floating Menu Card */
         .custom-menu-card {
             background: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
             border: 1px solid rgba(0,0,0,0.05);
-            padding: 20px;
+            padding: 24px;
+            margin-top: 10px;
         }
 
         .menu-item {
-            padding: 12px 15px;
+            padding: 14px 18px;
             font-weight: 600;
-            color: #333;
+            color: #2d3436;
             text-decoration: none;
             display: block;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #f1f1f1;
+            transition: 0.2s;
         }
 
-        .menu-item:last-child { border-bottom: none; }
+        .menu-item:hover { color: #007bff; background: #f8f9fa; border-radius: 8px; }
+        .menu-item:last-of-type { border-bottom: none; }
 
-        .search-bar-mock {
+        /* Working Search Bar Style */
+        .search-container-box {
             background: #f1f3f4;
             border-radius: 30px;
-            padding: 10px 20px;
-            margin-top: 15px;
-            color: #70757a;
+            padding: 8px 18px;
+            margin-top: 18px;
             display: flex;
             align-items: center;
         }
 
         .search-dot {
-            height: 10px;
-            width: 10px;
+            height: 12px;
+            width: 12px;
             background-color: #ea4335;
             border-radius: 50%;
-            margin-right: 10px;
+            margin-right: 12px;
+            flex-shrink: 0;
         }
 
-        /* Post Content Card */
+        /* Article Styling */
         .post-main-card {
             background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.04);
+            border: 1px solid #edf2f7;
         }
+
+        .post-content { line-height: 1.8; color: #2d3748; font-size: 1.15rem; }
     </style>
 </head>
 <body>
@@ -74,38 +85,45 @@
 <header class="glass-header">
     <div class="container d-flex justify-content-between align-items-center">
         <a class="navbar-brand d-flex align-items-center" href="/">
-            <img src="https://chemistryspark.sudhirnama.in/favicon.ico" width="40" height="40" class="rounded-circle me-2" alt="Logo">
+            <img src="https://images.sudhirnama.in/images/chemistry-spark.webp" width="42" height="42" class="rounded-circle me-2" alt="chemistry spark publication Logo">
             <span class="fw-bold text-primary fs-4">Chemistry Spark</span>
         </a>
-        <button class="btn border-0" type="button" data-bs-toggle="collapse" data-bs-target="#floatingMenu">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E" width="30">
+        
+        <button class="btn border-0 p-1" type="button" data-bs-toggle="collapse" data-bs-target="#floatingMenu">
+            <svg width="32" height="32" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 7h22M4 15h22M4 23h22" stroke="#333" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
         </button>
     </div>
 </header>
 
-<div class="collapse container mt-2" id="floatingMenu" style="position: fixed; top: 75px; z-index: 999; left: 0; right: 0;">
+<div class="collapse container" id="floatingMenu" style="position: fixed; top: 70px; z-index: 1040; left: 0; right: 0;">
     <div class="row justify-content-end">
-        <div class="col-md-4">
+        <div class="col-12 col-md-5 col-lg-4">
             <div class="custom-menu-card">
-                <a href="https://chemistryspark.sudhirnama.in/p/books.html" class="menu-item">Books</a>
-                <a href="https://chemistryspark.sudhirnama.in/p/videos.html" class="menu-item">Videos</a>
-                <a href="/" class="menu-item">Blog</a>
-                <div class="search-bar-mock">
+                <a href="/#books-section" class="menu-item">Books</a>
+                <a href="/#videos-section" class="menu-item">Videos</a>
+                <a href="/#latest-articles" class="menu-item">Blog</a>
+                
+                <form action="https://www.google.com/search" method="get" target="_blank" class="search-container-box">
                     <span class="search-dot"></span>
-                    Search my site...
-                </div>
+                    <input type="hidden" name="q" value="site:chemistryspark.sudhirnama.in">
+                    <input type="text" name="q" class="form-control border-0 bg-transparent p-0" placeholder="Search my site..." style="box-shadow: none; font-size: 0.95rem;">
+                </form>
             </div>
         </div>
     </div>
 </div>
 
-<main class="container">
+<main class="container my-4">
     <div class="row justify-content-center">
         <div class="col-lg-9">
             <article class="post-main-card">
-                <h1 class="fw-bold">{{ page.title }}</h1>
-                <p class="text-muted small">{{ page.date | date: "%B %d, %Y" }}</p>
-                <hr>
+                <h1 class="fw-bold mb-3" style="color: #1a202c;">{{ page.title }}</h1>
+                <div class="text-muted mb-4 d-flex align-items-center">
+                    <span>{{ page.date | date: "%B %d, %Y" }}</span>
+                </div>
+                <hr class="mb-5">
                 <div class="post-content">
                     {{ content }}
                 </div>
@@ -115,5 +133,6 @@
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
