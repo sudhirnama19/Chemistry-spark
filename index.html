@@ -573,19 +573,34 @@ h2, h1 {
 
 
 
-    /* --- DARK MODE TOGGLE STYLES --- */
-body.dark-mode { background-color: #121212 !important; color: #e0e0e0 !important; }
-.dark-mode .navbar, .dark-mode .navbar-collapse, .dark-mode .post-card, .dark-mode .cs-blog-card { 
-    background-color: #1e1e1e !important; border-color: #333 !important; color: #fff !important; 
-}
-.dark-mode .nav-link, .dark-mode h1, .dark-mode h2 { color: #fff !important; }
-.dark-mode .search-bubble, .dark-mode #custom-search-bubble { background: #2d2d2d !important; }
-.dark-mode input { color: #fff !important; }
+    /* --- High-End Dark Mode --- */
+body.dark-mode { background-color: #0d1117 !important; color: #c9d1d9 !important; }
 
-/* The Toggle Button Style */
+/* Header & Menu Transformation */
+.dark-mode .navbar { 
+    background: rgba(22, 27, 34, 0.95) !important; 
+    border-bottom: 1px solid #30363d !important; 
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5) !important; 
+}
+.dark-mode .navbar-collapse { 
+    background: #161b22 !important; 
+    border-bottom: 3px solid #007bff !important; 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6) !important; 
+}
+
+/* Text, Bubbles & Cards */
+.dark-mode .nav-link, .dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode .navbar-brand { color: #f0f6fc !important; }
+.dark-mode .search-bubble, .dark-mode #custom-search-bubble { background: #0d1117 !important; border: 1px solid #30363d !important; }
+.dark-mode input { color: #fff !important; }
+.dark-mode .cs-blog-card, .dark-mode .card, .dark-mode .reveal { background: #161b22 !important; border: 1px solid #30363d !important; }
+
+/* The Toggle Button Design */
 #theme-toggle {
-    background: none; border: none; font-size: 1.2rem; cursor: pointer;
-    padding: 5px 10px; transition: 0.3s; display: flex; align-items: center;
+    width: 38px; height: 38px; border-radius: 50%;
+    border: 1px solid rgba(0,123,255,0.2);
+    background: rgba(0,123,255,0.05);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; margin-right: 15px; transition: 0.3s;
 }
 
 
@@ -644,7 +659,7 @@ body.dark-mode { background-color: #121212 !important; color: #e0e0e0 !important
             </div>
             <span class="brand-text" style="font-weight:800; margin-left:10px; color:#111;">Chemistry Spark</span>
         </a>
-        <button id="theme-toggle" title="Toggle Dark Mode">
+        <button id="theme-toggle" title="Toggle Theme" type="button">
     <span id="theme-icon">🌙</span>
 </button>
 
@@ -887,24 +902,27 @@ document.addEventListener('click', function (event) {
 
 
 
-    <script>
-    const toggleBtn = document.getElementById('theme-toggle');
+<script>
+    const themeBtn = document.getElementById('theme-toggle');
     const themeIcon = document.getElementById('theme-icon');
     const body = document.body;
 
-    // Check for saved user preference
+    // 1. Check for saved preference on load
     if (localStorage.getItem('theme') === 'dark') {
         body.classList.add('dark-mode');
         themeIcon.textContent = '☀️';
     }
 
-    toggleBtn.addEventListener('click', () => {
+    // 2. Click Event
+    themeBtn.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
-        const isDark = body.classList.contains('dark-mode');
-        
-        // Save preference and change icon
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        themeIcon.textContent = isDark ? '☀️' : '🌙';
+        if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+            themeIcon.textContent = '☀️';
+        } else {
+            localStorage.setItem('theme', 'light');
+            themeIcon.textContent = '🌙';
+        }
     });
 </script>
     
