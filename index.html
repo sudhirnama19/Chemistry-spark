@@ -570,6 +570,26 @@ h2, h1 {
     font-size: 0.85rem;
     color: #6c757d;
 }
+
+
+
+    /* --- DARK MODE TOGGLE STYLES --- */
+body.dark-mode { background-color: #121212 !important; color: #e0e0e0 !important; }
+.dark-mode .navbar, .dark-mode .navbar-collapse, .dark-mode .post-card, .dark-mode .cs-blog-card { 
+    background-color: #1e1e1e !important; border-color: #333 !important; color: #fff !important; 
+}
+.dark-mode .nav-link, .dark-mode h1, .dark-mode h2 { color: #fff !important; }
+.dark-mode .search-bubble, .dark-mode #custom-search-bubble { background: #2d2d2d !important; }
+.dark-mode input { color: #fff !important; }
+
+/* The Toggle Button Style */
+#theme-toggle {
+    background: none; border: none; font-size: 1.2rem; cursor: pointer;
+    padding: 5px 10px; transition: 0.3s; display: flex; align-items: center;
+}
+
+
+    
     </style>
 
     <script type="application/ld+json">
@@ -624,6 +644,9 @@ h2, h1 {
             </div>
             <span class="brand-text" style="font-weight:800; margin-left:10px; color:#111;">Chemistry Spark</span>
         </a>
+        <button id="theme-toggle" title="Toggle Dark Mode">
+    <span id="theme-icon">🌙</span>
+</button>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hyperNav">
             <span class="navbar-toggler-icon"></span>
@@ -860,5 +883,30 @@ document.addEventListener('click', function (event) {
     }
 });
     </script>
+
+
+
+
+    <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const body = document.body;
+
+    // Check for saved user preference
+    if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark-mode');
+        themeIcon.textContent = '☀️';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        const isDark = body.classList.contains('dark-mode');
+        
+        // Save preference and change icon
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        themeIcon.textContent = isDark ? '☀️' : '🌙';
+    });
+</script>
+    
 </body>
 </html>
