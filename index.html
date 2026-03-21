@@ -543,7 +543,7 @@
       z-index: 1;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 80px 24px;
+      padding: 40px 24px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
@@ -563,7 +563,7 @@
       border: 1px solid rgba(29,78,216,0.2);
       padding: 6px 16px;
       border-radius: 999px;
-      margin-bottom: 28px;
+      margin-top: 0; /* Ensures no extra space at the very top */ margin-bottom: 20px; /* Reduced from 28px */ 
     }
 
     [data-theme="dark"] .hero-badge {
@@ -586,7 +586,8 @@
       font-size: clamp(2.8rem, 5vw, 4.2rem);
       font-weight: 700;
       color: var(--text);
-      margin-bottom: 20px;
+      margin-top: 10px;
+      margin-bottom: 10px;
       letter-spacing: -1px;
     }
 
@@ -717,7 +718,7 @@
     /* ============================================================
        SECTION COMMON
     ============================================================ */
-    section { padding: 90px 0; }
+    section { padding: 40px 0; }
 
     .section-inner {
       max-width: 1200px;
@@ -1255,8 +1256,8 @@
     }
 
     .footer-logo {
-      width: 32px; height: 32px;
-      border-radius: 8px;
+      width: 50px; height: 50px;
+      border-radius: 25px;
       overflow: hidden;
     }
 
@@ -1264,8 +1265,8 @@
 
     .footer-name {
       font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 1rem;
+      font-weight: 1000;
+      font-size: 1.4rem;
       color: var(--text);
     }
 
@@ -1276,7 +1277,7 @@
     }
 
     .footer-links a {
-      font-size: 0.85rem;
+      font-size: 1rem;
       color: var(--text-muted);
       transition: color var(--transition);
     }
@@ -1298,8 +1299,8 @@
     ============================================================ */
     #scroll-top {
       position: fixed;
-      bottom: 24px; right: 24px;
-      width: 44px; height: 44px;
+      bottom: 12px; right: 12px;
+      width: 30px; height: 30px;
       border-radius: 12px;
       background: var(--accent);
       color: #fff;
@@ -1408,12 +1409,29 @@
 
       .book-card       { flex-direction: column; }
       .book-cover-wrap { width: 100%; padding: 28px 28px 16px; align-items: center; }
-      .book-cover      { width: 130px; margin: 0 auto; }
+      .book-cover      { width: 650px; margin: 0 auto; }
       .book-info       { padding: 4px 20px 20px; }
       .book-desc       { display: block; }
       .book-footer     { flex-direction: row; align-items: center; }
       .btn-buy         { width: auto; }
     }
+    
+    
+    
+    /* DESKTOP RESPONSIVE FIX */
+@media (min-width: 901px) {
+  .nav-links {
+    display: flex !important; /* Shows links on desktop */
+  }
+  .hamburger {
+    display: none !important; /* Hides menu button on desktop */
+  }
+  .hero-inner {
+    grid-template-columns: 1fr 1fr; /* Side-by-side layout */
+    padding: 60px 24px;
+  }
+}
+    
   </style>
 </head>
 
@@ -1511,7 +1529,7 @@
         </div>
       </div>
 
-      <div class="hero-visual" aria-hidden="true">
+  <div class="hero-visual" aria-hidden="true">
         <div class="hero-book-thumb">
           <img src="https://images.sudhirnama.in/images/coordination-chemistry-on-fingertips-book-by-sudhir-nama.webp" alt="Coordination Chemistry Book" loading="lazy">
         </div>
@@ -1526,6 +1544,8 @@
         </div>
       </div>
     </div>
+
+
   </header>
 
   <!-- ============================================================
@@ -1953,3 +1973,4 @@
 
 </body>
 </html>
+
