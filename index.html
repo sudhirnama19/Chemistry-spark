@@ -1970,26 +1970,6 @@
     </div>
   </section>
 
-  <!-- ============================================================
-       LATEST ARTICLES
-  ============================================================ -->
-  <section id="blog" aria-labelledby="blog-heading">
-    <div class="section-inner">
-      <div class="section-head reveal">
-        <p class="section-label">Knowledge Hub</p>
-        <h2 class="section-title" id="blog-heading">Latest Articles</h2>
-        <p class="section-desc">In-depth articles, exam tips, and chemistry resources published regularly on the blog.</p>
-      </div>
-      <div class="blog-list reveal">
-        {% for post in site.posts %}
-        <div class="blog-item">
-          <a href="{{ post.url }}">{{ post.title }}</a>
-          <time class="blog-date" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%B %d, %Y" }}</time>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-  </section>
 
   <!-- ============================================================
        STUDENT REVIEWS
